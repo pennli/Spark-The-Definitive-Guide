@@ -32,12 +32,16 @@ val joinExpression = person.col("graduate_program") === graduateProgram.col("id"
 // COMMAND ----------
 
 // in Scala
+// keys not exists result to zero value
 val wrongJoinExpression = person.col("name") === graduateProgram.col("school")
 
 
 // COMMAND ----------
 
 person.join(graduateProgram, joinExpression).show()
+// or -- added by penn
+// person.join(graduateProgram, joinExpression).show()
+
 
 
 // COMMAND ----------

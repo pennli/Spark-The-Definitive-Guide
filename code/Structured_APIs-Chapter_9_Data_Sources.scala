@@ -198,6 +198,9 @@ dbDataFrame.explain()
 // COMMAND ----------
 
 // in Scala
+// numPartitions--
+// The maximum number of partitions that can be used for parallelism in table reading and writing. This also determines the maximum number of concurrent JDBC connections. If the number of partitions to write exceeds this limit, we decrease it to this limit by calling coalesce(numPartitions) before writing.
+
 val dbDataFrame = spark.read.format("jdbc")
   .option("url", url).option("dbtable", tablename).option("driver", driver)
   .option("numPartitions", 10).load()
